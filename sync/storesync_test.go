@@ -1,9 +1,8 @@
 package sync_test
 
 import (
+	"github.com/leaanthony/store/sync"
 	"github.com/matryer/is"
-	"github.com/wailsapp/wails/v2/pkg/store"
-	"github.com/wailsapp/wails/v2/pkg/store/sync"
 	"testing"
 )
 
@@ -32,7 +31,7 @@ func TestNewSync(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := store.New(tt.initialValue)
+			got := sync.New(tt.initialValue)
 			i.True(got != nil)
 			i.Equal(got.Get(), tt.initialValue)
 		})
@@ -118,7 +117,7 @@ func TestStoreSync_Update_Subscribe(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			s := store.New(tt.initialValue)
+			s := sync.New(tt.initialValue)
 			if tt.subscribers != nil {
 				for _, subscriber := range tt.subscribers {
 					s.Subscribe(subscriber)

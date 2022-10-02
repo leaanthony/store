@@ -1,8 +1,8 @@
 package store_test
 
 import (
+	"github.com/leaanthony/store"
 	"github.com/matryer/is"
-	"github.com/wailsapp/wails/v2/pkg/store"
 	"testing"
 )
 
